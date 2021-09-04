@@ -2,9 +2,8 @@ import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 
-export const NabVar=()=>{
-    return(
-        <>  
+export const NavBar =()=>{
+    return <>  
             <Navbar bg="light" expand="lg">
                 <Container>
                     <Navbar.Brand href="#home">Aura</Navbar.Brand>
@@ -18,8 +17,6 @@ export const NabVar=()=>{
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>s
-                
+            </Navbar>     
         </>
-    )
-} 
+}
