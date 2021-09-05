@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function ItemListContainer({titulo, subtitulo}) {
+export default function ItemListContainer({greeting, subtitulo}) {
   return (
     <>
-    <h1>{titulo}</h1>
+    <h1>{greeting}</h1>
     <h2>{subtitulo}</h2>  
     <ul>
       <li>Comidas frías</li>
