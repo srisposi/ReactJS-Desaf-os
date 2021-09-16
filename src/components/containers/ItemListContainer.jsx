@@ -3,7 +3,7 @@ import { getFetch } from '../../utils/Mock'
 import ItemList from '../ItemList/ItemList'
 
 
-function ItemListContainer(greeting, onAdd) {
+function ItemListContainer({greeting, onAdd}) {
     const [producto, setProducto] = useState([])
     const [loading, setLoading] = useState(true)
 
@@ -22,7 +22,7 @@ function ItemListContainer(greeting, onAdd) {
             { loading ?
                 <h2>Cargando ...</h2>
                 :
-                <ItemList personas={producto} /> 
+                <ItemList productos={producto} /> 
             }
         </div>
     )

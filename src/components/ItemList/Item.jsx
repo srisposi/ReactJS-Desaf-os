@@ -14,6 +14,7 @@ const Item=({producto}) => {
                     <buttom className="btn btn-outline-primary">
                         Detalle
                     </buttom>
+                    
                 </div>
             </div>
         </>
