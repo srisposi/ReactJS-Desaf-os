@@ -10,8 +10,20 @@ export default function App() {
         <>
             <NavBar />
             <h1>Menú Inicial</h1>
-            <ItemListContainer greeting={greeting}/> 
-             
+            <ItemListContainer greeting={greeting}/>
+            {/* <Router>
+                <Switch>
+                    <Route path= '/' exact component={ItemListContainer}/>
+                    <Route path= '/categpry/:idCategory' exact component={ItemListContainer}/>
+                    <Route path= '/detalle/:idProducto' exact component={ItemListContainer}/>
+
+                    <Route exact path='/cart'>
+                        <Cart />
+                    </Route>
+
+                </Switch> 
+            </Router> */}
+            
         </>
     )
 }

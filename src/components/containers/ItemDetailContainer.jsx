@@ -1,9 +1,22 @@
-import React from 'react'
+import {useEffect,useState} from 'react'
+import { getFetchDetail } from '../../utils/getMock'
+import { ItemDetail } from '../ItemDetail/ItemDetail'
 
-export default function ItemDetailContainer() {
+const ItemDetailContainer = () => {
+    const [prod, setProd] = useState({})
+
+    useEffect(()=>{
+        getFetchDetail
+        .then(resp => setProd(resp))
+        .catch(err => console.log(err))
+    }, [])
+
     return (
-        <div>
-            
-        </div>
+        <>
+            <ItemDetail prod={prod}/>
+          hola soy detalle  
+        </>
     )
 }
+
+export default ItemDetailContainer

@@ -1,9 +1,13 @@
 import React from 'react'
 
-export default function ItemDetail() {
+export const ItemDetail = ({prod}) => {
     return (
+        /* Agregar card */
         <div>
-            
+            <h2>prod.id</h2>
+            <h2>prod.peso</h2>
+            <img src={prod.foto} alt="foto" />
         </div>
     )
 }
+
