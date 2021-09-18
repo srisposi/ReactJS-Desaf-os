@@ -7,8 +7,8 @@ export function ItemListContainer({greeting, onAdd}) {
     const [producto, setProducto] = useState([])
     const [loading, setLoading] = useState(true)
     
-/*      const {idCategory} = useParams()
- */ 
+    const {idCategory} = useParams()
+
      useEffect(() => {
         getFetch
         .then(res=>{
@@ -19,12 +19,11 @@ export function ItemListContainer({greeting, onAdd}) {
     console.log(producto);
     console.log(loading);  
     
-/*      useEffect(() => {
-
+      useEffect(() => {
         if (idCategory){
             getFetch
             .then(respuesta =>{
-                setProducto(respuesta.filter(prod = prod.idCategory === idCategory))
+                setProducto(respuesta.filter(producto = producto.category === idCategory))
             })
             .catch(error => console.log(error))
             .finally(()=> setLoading(false))   
@@ -51,6 +50,6 @@ export function ItemListContainer({greeting, onAdd}) {
             }
         </div>
     )         
-} */
+} 
 
 

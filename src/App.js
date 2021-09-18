@@ -17,10 +17,12 @@ export default function App() {
             {/* <ItemListContainer greeting={greeting}/> */}
             <Router>
                 <Switch>
+{/*                     <Route exact path="/" component={Home}/> */}
                     <Route path= '/' exact component={ItemListContainer}/>
                     <Route path= '/categpry/:idCategory' exact component={ItemListContainer}/>
                     <Route path= '/detalle/:idProducto' exact component={ItemDetailContainer}/>
 
+                    {/* UseParams */}
                     <Route exact path='/cart'>
                         <Cart />
                     </Route>
