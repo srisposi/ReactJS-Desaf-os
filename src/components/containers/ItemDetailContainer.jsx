@@ -1,9 +1,11 @@
 import {useEffect,useState} from 'react'
 import { getFetchDetail } from '../../utils/getMock'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
+import {useParams} from "react-router-dom"
 
 const ItemDetailContainer = () => {
     const [prod, setProd] = useState({})
+    const {idProducto} = useParams()
 
     useEffect(()=>{
         getFetchDetail
@@ -11,6 +13,7 @@ const ItemDetailContainer = () => {
         .catch(err => console.log(err))
     }, [])
 
+    console.log(idProducto)
     return (
         <>
             <ItemDetail prod={prod}/>

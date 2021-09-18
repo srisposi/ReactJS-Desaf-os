@@ -1,13 +1,15 @@
 import {useState, useEffect} from 'react'
+import { useParams } from 'react-router'
 import { getFetch } from '../../utils/Mock'
 import ItemList from '../ItemList/ItemList'
 
-
-function ItemListContainer({greeting, onAdd}) {
+export function ItemListContainer({greeting, onAdd}) {
     const [producto, setProducto] = useState([])
     const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
+    
+/*      const {idCategory} = useParams()
+ */ 
+     useEffect(() => {
         getFetch
         .then(res=>{
             setProducto(res)
@@ -15,7 +17,30 @@ function ItemListContainer({greeting, onAdd}) {
         })
     }, [])
     console.log(producto);
-    console.log(loading); 
+    console.log(loading);  
+    
+/*      useEffect(() => {
+
+        if (idCategory){
+            getFetch
+            .then(respuesta =>{
+                setProducto(respuesta.filter(prod = prod.idCategory === idCategory))
+            })
+            .catch(error => console.log(error))
+            .finally(()=> setLoading(false))   
+
+        } else {
+            getFetch
+            .then(respuesta =>{
+                setProducto(respuesta)
+            })
+            .catch(error=> console.log(error))
+            .finally(() => setLoading(false))
+        }
+    }, [idCategory])
+    console.log(idCategory);     
+
+    
     return (
         <div>
             <h1>{greeting}</h1>
@@ -25,7 +50,7 @@ function ItemListContainer({greeting, onAdd}) {
                 <ItemList productos={producto} /> 
             }
         </div>
-    )
-}
+    )         
+} */
 
-export default ItemListContainer
+
