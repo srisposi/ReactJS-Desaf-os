@@ -3,7 +3,7 @@ import {useState} from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount'
 
-export const ItemDetail = ({prod}) => {
+const ItemDetail = ({prod}) => {
     const [cambiarBoton, setCambiarBoton] = useState(true)
     
     const onAdd=(cant)=>{
@@ -30,3 +30,4 @@ export const ItemDetail = ({prod}) => {
     )
 }
 
+export default ItemDetail

@@ -15,9 +15,9 @@ export default function App() {
             <NavBar />
             <h1>Menú Inicial</h1>
             <Switch>
-                <Route exact path='/'>
+                <Router exact path='/'>
                     <ItemListContainer greeting={greeting}/>
-                </Route>    
+                </Router>    
 {/*                     <Route exact path="/" component={Home}/> */}
                 <Route path= '/categpry/:idCategory' exact component={ItemListContainer}/>
                 

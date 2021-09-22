@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 const ItemCount = ({stock, initial, onAdd}) => {
     const [count, setCount] = useState(initial)
+    const [cambiarBoton, setCambiarBoton] = useState(true)
 
     function sumar(){
         if(count<stock){
@@ -18,6 +19,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     const agregarCarrito=()=>{
         onAdd(count)
+        setCambiarBoton(false)
     }
 
     return(
@@ -26,8 +28,19 @@ const ItemCount = ({stock, initial, onAdd}) => {
             <button onClick={sumar}>+</button>
             <label>{count}</label>
             <button onClick={restar}>-</button>
-            <button onClick={agregarCarrito}> Agregar al carrito</button>
 
+            {cambiarBoton ? 
+                <button onClick={agregarCarrito}> Agregar al carrito</button>        
+            : 
+            <div>
+                <Link to="/cart">
+                    <button> Terminar Compra</button>
+                </Link>
+                <Link to="/">
+                    <button> Seguir Comprando</button>
+                </Link>
+            </div>
+             }
         </div>
     )
 }
