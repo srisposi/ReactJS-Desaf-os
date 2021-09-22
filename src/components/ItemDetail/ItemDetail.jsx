@@ -1,13 +1,32 @@
 import React from 'react'
+import {useState} from 'react'
+import { Link } from 'react-router-dom'
+import ItemCount from '../ItemCount'
 
 export const ItemDetail = ({prod}) => {
+    const [cambiarBoton, setCambiarBoton] = useState(true)
+    
+    const onAdd=(cant)=>{
+        console.log(cant)
+        setCambiarBoton(false)
+    }
+
     return (
         /* Agregar card */
-        <div>
+        <>
             <h2>prod.id</h2>
             <h2>prod.peso</h2>
             <img src={prod.foto} alt="foto" />
-        </div>
+            {
+                cambiarBoton ?
+                    <ItemCount initial={1} stock={5} onAdd={onAdd} />
+                    :
+                    <Link to="/cart">
+                        <button>Terminar Compra</button>
+                    </Link>
+                }
+        
+        </>
     )
 }
 

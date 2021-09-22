@@ -5,7 +5,7 @@ import ItemListContainer from './components/containers/ItemListContainer'
 import Cart from './components/Cart/Cart';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import ItemDetailContainer from './components/containers/ItemDetailContainer';
-import ItemDetail from './components/ItemDetail/ItemDetai';
+import ItemDetail from './components/ItemDetail/ItemDetail';
 
 export default function App() {
 /*     let greeting= 'Bienvenidos a Aura' 
@@ -14,26 +14,25 @@ export default function App() {
         <>
             <NavBar />
             <h1>Menú Inicial</h1>
-            {/* <ItemListContainer greeting={greeting}/> */}
-            <Router>
-                <Switch>
+            <Switch>
+                <Route exact path='/'>
+                    <ItemListContainer greeting={greeting}/>
+                </Route>    
 {/*                     <Route exact path="/" component={Home}/> */}
-                    <Route path= '/' exact component={ItemListContainer}/>
-                    <Route path= '/categpry/:idCategory' exact component={ItemListContainer}/>
-                    <Route path= '/detalle/:idProducto' exact component={ItemDetailContainer}/>
+                <Route path= '/categpry/:idCategory' exact component={ItemListContainer}/>
+                
+                <Route path= '/' exact component={ItemListContainer}/>
+                
+                <Route exact path= '/detalle/:idProducto' component={ItemDetailContainer}/>
 
                     {/* UseParams */}
-                    <Route exact path='/cart'>
-                        <Cart />
-                    </Route>
+                <Route exact path='/cart' component={Cart}/>
 
-                    <Route exact path='/descripcion'>
-                        <ItemDetail />
-                    </Route>
+                <Route exact path='/descripcion'>
+                    <ItemDetail />
+                </Route>
 
-                </Switch> 
-            </Router> 
-            
+            </Switch> 
         </>
     )
 }

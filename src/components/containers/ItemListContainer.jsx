@@ -1,15 +1,16 @@
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router'
 import { getFetch } from '../../utils/Mock'
+import {Input} from '../../clases/Input';
 import ItemList from '../ItemList/ItemList'
+import ItemCount from '../ItemCount'
 
-export function ItemListContainer({greeting, onAdd}) {
+export default function ItemListContainer({greeting}) {
     const [producto, setProducto] = useState([])
     const [loading, setLoading] = useState(true)
-    
     const {idCategory} = useParams()
 
-     useEffect(() => {
+/*      useEffect(() => {
         getFetch
         .then(res=>{
             setProducto(res)
@@ -17,17 +18,16 @@ export function ItemListContainer({greeting, onAdd}) {
         })
     }, [])
     console.log(producto);
-    console.log(loading);  
+    console.log(loading);   */
     
       useEffect(() => {
         if (idCategory){
             getFetch
             .then(respuesta =>{
-                setProducto(respuesta.filter(producto = producto.category === idCategory))
+                setProducto(respuesta.filter(prod = prod.category === idCategory))
             })
             .catch(error => console.log(error))
             .finally(()=> setLoading(false))   
-
         } else {
             getFetch
             .then(respuesta =>{
@@ -38,16 +38,12 @@ export function ItemListContainer({greeting, onAdd}) {
         }
     }, [idCategory])
     console.log(idCategory);     
-
     
     return (
         <div>
+            <Input />
             <h1>{greeting}</h1>
-            { loading ?
-                <h2>Cargando ...</h2>
-                :
-                <ItemList productos={producto} /> 
-            }
+            { loading ? <h2>Cargando ...</h2> : <ItemList productos={producto} /> }
         </div>
     )         
 } 
