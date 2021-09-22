@@ -14,25 +14,27 @@ export default function App() {
         <>
             <NavBar />
             <h1>Menú Inicial</h1>
+            <Router>
             <Switch>
-                <Router exact path='/'>
+                <Route exact path='/'>
                     <ItemListContainer greeting={greeting}/>
-                </Router>    
+                </Route>                
 {/*                     <Route exact path="/" component={Home}/> */}
-                <Route path= '/categpry/:idCategory' exact component={ItemListContainer}/>
-                
-                <Route path= '/' exact component={ItemListContainer}/>
-                
-                <Route exact path= '/detalle/:idProducto' component={ItemDetailContainer}/>
+                    <Route path= '/categpry/:idCategory' exact component={ItemListContainer}/>
+                    
+                    <Route path= '/' exact component={ItemListContainer}/>
+                    
+                    <Route exact path= '/detalle/:idProducto' component={ItemDetailContainer}/>
 
-                    {/* UseParams */}
-                <Route exact path='/cart' component={Cart}/>
+                        {/* UseParams */}
+                    <Route exact path='/cart' component={Cart}/>
 
-                <Route exact path='/descripcion'>
-                    <ItemDetail />
-                </Route>
+                    <Route exact path='/descripcion'>
+                        <ItemDetail />
+                    </Route>
 
-            </Switch> 
+                </Switch> 
+            </Router>    
         </>
     )
 }
