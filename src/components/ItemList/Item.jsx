@@ -9,7 +9,7 @@ const Item=({producto}) => {
                     {producto.name}
                 </div>
                 <div className="card-body">
-                    <img src={producto.foto} alt='imagen' className='w-25' />
+                    <img src={producto.image} alt='imagen' className='w-25' />
                 </div>
                 <div className="card-footer">
                     <Link to={`/detalle/${producto.id}`}>

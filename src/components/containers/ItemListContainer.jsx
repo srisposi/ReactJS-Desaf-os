@@ -1,12 +1,12 @@
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router'
-import { getFetch } from '../../utils/Mock'
 import {Input} from '../../clases/Input';
 import ItemList from '../ItemList/ItemList'
-import ItemCount from '../ItemCount'
+import { getFirebase } from '../../services/getFirebase';
 
 export default function ItemListContainer({greeting}) {
     const [producto, setProducto] = useState([])
+
     const [loading, setLoading] = useState(true)
     const {idCategory} = useParams()
 
@@ -20,24 +20,23 @@ export default function ItemListContainer({greeting}) {
     console.log(producto);
     console.log(loading);   */
     
-      useEffect(() => {
-        if (idCategory){
-            getFetch
-            .then(respuesta =>{
-                setProducto(respuesta.filter(prod = prod.category === idCategory))
-            })
-            .catch(error => console.log(error))
-            .finally(()=> setLoading(false))   
-        } else {
-            getFetch
-            .then(respuesta =>{
-                setProducto(respuesta)
-            })
-            .catch(error=> console.log(error))
-            .finally(() => setLoading(false))
-        }
+       useEffect(() => {
+
+        const dbQuery = getFirebase()
+        
+//      dbQuery.collection('items').where('category', '==', 'idCategory').get()
+//      dbQuery.collection('items').where('category', '==', 'idCategory').limit(1).get()
+        dbQuery.collection('items').get()
+        .then(resp => {
+            setProducto(resp.docs.map(item => ({id: item.id, ...item.data()}) ) )
+        })
+        .catch(err => console.log(err))
+        .finally(() => setLoading(false))
+        
     }, [idCategory])
-    console.log(idCategory);     
+    
+    console.log(producto)
+    //console.log(idCategory);     
     
     return (
         <div>
