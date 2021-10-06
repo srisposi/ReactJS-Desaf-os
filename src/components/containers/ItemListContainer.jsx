@@ -39,12 +39,13 @@ export default function ItemListContainer({greeting}) {
     //console.log(idCategory);     
     
     return (
-        <div>
-            <Input />
-            <h1>{greeting}</h1>
-            { loading ? <h2>Cargando ...</h2> : <ItemList productos={producto} /> }
-        </div>
-    )         
+        <React.Fragment>
+            <div>
+                <Input />
+                <h1>{greeting}</h1>
+                { loading ? <h2>Cargando ...</h2> : <ItemList productos={producto} /> }
+            </div>
+    )   </React.Fragment>      
 } 
 
 
